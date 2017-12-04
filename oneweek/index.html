@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./App/common/css/reset.css">
+    <link rel="stylesheet" href="./App/common/css/common.css">
+    <link rel="stylesheet" href="./App/common/css/style.css">
+</head>
+<body ng-app="app">
+    <div ng-controller="main">
+        <ul class="ulitem">
+            <li ng-repeat="item in data.data.ullist">{{item}}</li>
+        </ul>
+        <dl ng-repeat="dlitem in data.data.dldata">
+            <dt><img src="{{dlitem.icon}}" alt=""></dt>
+            <dd>
+                <h3>{{dlitem.tit}}</h3>
+                <p>{{dlitem.address}}</p>
+                <p>{{dlitem.info}}</p>
+                <p>{{dlitem.office}}<span>{{dlitem.cont}}</span>{{dlitem.person}}</p>
+            </dd>
+        </dl>
+    </div>
+    <!-- <script>
+        function ajax(url){
+            return new Promise(function(resolve,reject){
+                var xhr = null;
+                var hander = function(){
+                    if(xhr.readyState!==4){
+                        return -1;
+                    }
+                    if(xhr.status==200){
+                        resolve(xhr.responseText);
+                    }else{
+                        reject(new Error(xhr.responseText));
+                    }
+                }
+                if(window.XMLHttpRequest){
+                    xhr=new XMLHttpRequest();
+                }else{
+                    xhr=new ActiveXObject('Microsoft XMLHTTP');
+                }
+                xhr.open('GET',url,true);
+                xhr.send();
+                xhr.onreadystatechange=hander;
+            })
+        }
+        ajax('http://localhost:8080/datajson').then(function(result){
+            console.log(result);
+            var data = JSON.parse(result);
+        });
+    </script> -->
+    <script src="./App/common/js/angular.js"></script>
+    <script src="./App/self/app.js"></script>
+    <script src="./App/self/maindata.js"></script>
+</body>
+</html>
